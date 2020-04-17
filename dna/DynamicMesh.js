@@ -64,10 +64,9 @@ class DynamicMesh extends dna.FixedMesh {
             lib.v2.scale(env.tune.gravityV2, dt))
 
         // horizontal friction
-        if (this.mv.y === 0) {
+        if (this.mv.y < 1) {
             this.mv.x = this.mv.x * max((1-friction*dt), 0)
         }
-
 
         // move
         this.collide(dt) // cancel movement if needed

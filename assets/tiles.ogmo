@@ -28,9 +28,18 @@
     },
     {
       "definition": "tile",
-      "name": "ground",
+      "name": "dirt",
       "gridSize": {"x": 16, "y": 16},
       "exportID": "05259417",
+      "exportMode": 0,
+      "arrayMode": 0,
+      "defaultTileset": "dirt"
+    },
+    {
+      "definition": "tile",
+      "name": "decor",
+      "gridSize": {"x": 16, "y": 16},
+      "exportID": "16024715",
       "exportMode": 0,
       "arrayMode": 0,
       "defaultTileset": "dirt"

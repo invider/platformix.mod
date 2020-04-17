@@ -1,18 +1,20 @@
 function setup() {
     // setup level 3
-    lab.attach(_.lvl.level[3], 'level')
-    
-    lab.level.Z = 1
-    lab.level['ground'].step = 32
-    lab.level['sky'].step = 32
+    lab.attach(_.lvl.level[3].sky)
+    lab.attach(_.lvl.level[3].dirt)
+    lab.attach(_.lvl.level[3].decor)
 
-    lab.spawn(dna.DynamicMesh, {
+    lab.dirt.step = 32
+    lab.sky.step = 32
+    lab.decor.step = 32
+
+    lab.spawn(dna.Hero, {
         name: 'hero',
         Z: 11,
         x: 300,
         y: 90,
         w: 32,
-        h: 32,
+        h: 48,
     })
 
     lab.spawn(dna.FixedMesh, {
