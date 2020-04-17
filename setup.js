@@ -25,4 +25,6 @@ function setup() {
         w: 32,
         h: 32,
     })
+
+    lab.control.player.bind(1, lab.hero)
 }

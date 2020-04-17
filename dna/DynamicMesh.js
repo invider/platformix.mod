@@ -1,16 +1,10 @@
 // @depends(dna/FixedMesh)
 
-const friction = 2
+const friction = 10
 
-const sideForce = {
-    x: 20,
-    y: 0,
-}
+const maxSlide = 20
 
-const jumpForce = {
-    x: 0,
-    y: -50,
-}
+const slide = 20
 
 class DynamicMesh extends dna.FixedMesh {
 
@@ -72,12 +66,6 @@ class DynamicMesh extends dna.FixedMesh {
         this.collide(dt) // cancel movement if needed
         this.x = this.x + this.mv.x * dt
         this.y = this.y + this.mv.y * dt
-
-        // graound bound
-        if (this.y >= ry(1)-this.h/2) {
-            this.y = ry(1)-this.h/2
-            this.mv.y = 0
-        }
     }
 
     draw() {
@@ -95,23 +83,5 @@ class DynamicMesh extends dna.FixedMesh {
         lineWidth(4)
         fill(.3, .6, .55)
         plot(this.x-2, this.y-2)
-    }
-
-    up() {
-        this.mv = lib.v2.add(this.mv, jumpForce)
-    }
-
-    left() {
-        this.mv = lib.v2.add(this.mv, lib.v2.inverse(sideForce))
-    }
-
-    down() {
-    }
-
-    right() {
-        const before = lib.v2.toString(this.mv)
-        this.mv = lib.v2.add(this.mv, sideForce)
-        const after = lib.v2.toString(this.mv)
-        log(before + ' -> ' + after)
     }
 }
